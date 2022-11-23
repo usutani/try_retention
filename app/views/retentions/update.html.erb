@@ -1,0 +1,12 @@
+<h2>Cycle</h2>
+<%= days_to_human(@retention.cycle) %>
+<h2>Project</h2>
+<%= days_to_human(@retention.project) %>
+<%= form_with url: retention_path, method: :put do %>
+  <%= hidden_field_tag 'cycle', @retention.cycle %>
+  <%= hidden_field_tag 'project', @retention.project %>
+  <%= text_field_tag 'confirmation', nil, placeholder: 'Type CONFIRM', required: true %>
+  <br>
+  <%= submit_tag 'Yes, confirm and apply changes' %>
+  <%= link_to 'Never mind, go back', retention_path %>
+<% end %>

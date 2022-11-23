@@ -1,0 +1,7 @@
+<% items.each do |item| %>
+  <%= label_tag do %>
+    <%= radio_button_tag name, item || '', item == value %>
+    <%= tag.span days_to_human(item) %>
+  <% end %>
+  <br>
+<% end %>

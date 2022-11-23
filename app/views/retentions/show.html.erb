@@ -1,2 +1,11 @@
 <h1>Retentions#show</h1>
 <p>Find me in app/views/retentions/show.html.erb</p>
+
+<%= form_with url: retention_path, method: :put do %>
+  <h2>Cycle</h2>
+  <%= render 'radio_buttons', items: @items, name: 'cycle', value: @retention.cycle %>
+  <h2>Project</h2>
+  <%= render 'radio_buttons', items: @items, name: 'project', value: @retention.project %>
+  <%= submit_tag 'Review chnges...' %>
+  <%= link_to 'Never mind', home_path %>
+<% end %>
