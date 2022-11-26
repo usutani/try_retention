@@ -20,7 +20,11 @@ class RetentionsController < ApplicationController
     end
 
     def retention_params
-      params.permit(:cycle, :project).to_h { |k, v| [k, v.presence] }
+      # params.permit(:cycle, :project).to_h { |k, v| [k, v.presence] }
+      {
+        cycle: params[:cycle].presence,
+        project: params[:project].presence,
+      }
     end
 
     def confirmed?
